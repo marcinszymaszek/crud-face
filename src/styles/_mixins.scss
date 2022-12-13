@@ -1,0 +1,41 @@
+@import './variables';
+
+//====== RESPONSIVENESS =======
+@mixin breakpoint( $breakpoint ) {
+  @if map-has-key( $breakpoints, $breakpoint ) {
+     @media ( min-width: #{ map-get( $breakpoints, $breakpoint ) } ) {
+       @content;
+     }
+  } @else if type_of( $breakpoint ) == number and unit( $breakpoint ) == px or unit( $breakpoint ) == em or unit( $breakpoint ) == rem {
+     @media (min-width: $breakpoint ) {
+       @content;
+     }
+   } @else {
+     @warn "Can't get any value from #{$breakpoint}";
+  }
+}
+
+//====== CONTAINER =======
+@mixin center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  @mixin center-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+//====== BUTTON =======
+  @mixin basic-button {
+    cursor: pointer;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 3rem;
+    font-size: 20px;
+    border-radius: 10px;
+  }
