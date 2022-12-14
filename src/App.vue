@@ -6,9 +6,9 @@
       @paste-endpoint="setEndpoint"
       :endpoint="endpoint"
     />
-    <Confirmation v-if="!loading && !allFaces.length && endpoint" />
+    <Confirmation v-if="!allFaces.length && !loading && endpoint" />
     <div v-if="loading" class="loader"></div>
-    <template v-if="!loading && allFaces.length">
+    <template v-if="allFaces.length && !loading">
       <FaceList :key="componentKey" :all-faces="allFaces">
         <template v-slot="{ face }">
           <FaceView
@@ -100,8 +100,8 @@ export default {
           .then(() => {
             this.componentKey += 1;
           })
+          .then((this.loading = false));
       }, 3000);
-      this.loading = false
     },
     setEditedFace(face) {
       this.editMode = typeof face === "object";

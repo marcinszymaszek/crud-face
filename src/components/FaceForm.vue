@@ -10,17 +10,25 @@
             <span>&times;</span>
           </div>
           <form>
-            <h2 for="skin-colors"> Skin color </h2>
+            <h2 for="skin-colors">Skin color</h2>
             <v-select
-              class="chooser"
               :options="skinColors"
+              option-text="label"
+              option-value="value"
+              v-model="formValues.skinColor"
+              :clearable="false"
+              class="chooser"
               @input="setSkinColor($event.value)"
             >
             </v-select>
-            <h2 for="hair-colors"> Hair color </h2>
+            <h2 for="hair-colors">Hair color</h2>
             <v-select
-              class="chooser"
               :options="hairColors"
+              option-text="label"
+              option-value="value"
+              v-model="formValues.hairColor"
+              :clearable="false"
+              class="chooser"
               @input="setHairColor($event.value)"
             >
             </v-select>
@@ -39,45 +47,45 @@
 
 <script>
 import axios from "axios";
-import vSelect from 'vue-select';
-import 'vue-select/dist/vue-select.css';
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 
 export default {
   name: "FaceForm",
   components: {
-    vSelect
+    vSelect,
   },
   data() {
     return {
       formValues: {
         skinColor: {
           value: null,
-          label: null
+          label: null,
         },
         hairColor: {
           value: null,
-          label: null
-        }
+          label: null,
+        },
       },
       skinColors: [
-      {
-        value: "255,204,153",
-        label: "white"
-      },
-      {
-        value: "148,89,44",
-        label: "dark"
-      }
+        {
+          value: "255,204,153",
+          label: "white",
+        },
+        {
+          value: "148,89,44",
+          label: "dark",
+        },
       ],
       hairColors: [
-      {
-        value: "240,234,48",
-        label: "blond"
-      },
-      {
-        value: "0,0,0",
-        label: "black"
-      }
+        {
+          value: "240,234,48",
+          label: "blond",
+        },
+        {
+          value: "0,0,0",
+          label: "black",
+        },
       ],
     };
   },
@@ -85,9 +93,11 @@ export default {
   mounted() {
     if (this.editMode && this.editedFace) {
       this.formValues.skinColor.value = this.editedFace.skinColor;
-      this.formValues.skinColor.label = this.editedFace.skinColor[0] === 255 ? "white" : "dark"
+      this.formValues.skinColor.label =
+        this.editedFace.skinColor[0] === 255 ? "white" : "dark";
       this.formValues.hairColor.value = this.editedFace.hairColor;
-      this.formValues.hairColor.label = this.editedFace.hairColor[0] === 240 ? "blond" : "black"
+      this.formValues.hairColor.label =
+        this.editedFace.hairColor[0] === 240 ? "blond" : "black";
     }
   },
   methods: {
@@ -112,11 +122,13 @@ export default {
       this.closeModal();
     },
     setSkinColor(value) {
-      this.formValues.skinColor.label = value === "255,204,153" ? "white" : "dark"
+      this.formValues.skinColor.label =
+        value === "255,204,153" ? "white" : "dark";
       this.formValues.skinColor.value = this.convertToNumericArray(value);
     },
     setHairColor(value) {
-      this.formValues.hairColor.label = value === "240,234,48" ? "blond" : "black"
+      this.formValues.hairColor.label =
+        value === "240,234,48" ? "blond" : "black";
       this.formValues.hairColor.value = this.convertToNumericArray(value);
     },
     convertToNumericArray(str) {
