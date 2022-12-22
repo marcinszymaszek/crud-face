@@ -1,10 +1,12 @@
 <template>
-  <div class="box">
+  <div class="box face-view">
     <canvas width="200" height="200" :id="face._id"> </canvas>
-    <button class="btn btn--edit" @click="editFace(face)">Edit</button>
-    <button class="btn btn--delete" @click="deleteFace(face._id)">
-      Delete
-    </button>
+    <div class="btn-container">
+      <button class="btn btn--edit" @click="editFace(face)">Edit</button>
+      <button class="btn btn--delete" @click="deleteFace(face._id)">
+        Delete
+      </button>
+    </div>
   </div>
 </template>
 
@@ -82,15 +84,25 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../styles/_mixins.scss";
+@import "../styles/variables.scss";
 
 .box {
   @include center-container;
+  &.face-view {
+    align-items: center;
+  }
+  padding: 1rem;
   &--header {
     margin-bottom: 2rem;
   }
   .btn {
+    width: 100%;
+    &--edit,
+    &--delete {
+      width: 100%;
+    }
     &--edit {
       margin: 1rem 0rem;
       background: $color-blue;
@@ -98,6 +110,30 @@ export default {
     &--delete {
       margin-bottom: 1rem;
       background: $color-red;
+    }
+    @include breakpoint(medium) {
+      &--edit,
+      &--delete {
+        max-width: 9rem;
+      }
+    }
+    @include breakpoint(large) {
+      &--edit,
+      &--delete {
+        max-width: 10rem;
+      }
+    }
+  }
+  .btn-container {
+    width: 100%;
+    @include breakpoint(medium) {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      justify-content: center;
+    }
+    @include breakpoint(medium) {
+      gap: 15px;
     }
   }
 }

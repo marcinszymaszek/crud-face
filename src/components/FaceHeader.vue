@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../styles/_mixins.scss";
 @import "../styles/_variables.scss";
 
@@ -21,12 +21,16 @@ h1 {
   color: $color-lagoon;
   text-align: center;
   font-size: 50px;
+  margin-bottom: 1rem;
 }
 
 .box {
   @include center-container;
   &--header {
     margin-bottom: 2rem;
+    @include breakpoint(medium) {
+      align-items: start;
+    }
   }
 }
 
@@ -34,6 +38,12 @@ h1 {
   @include basic-button;
   &--add {
     background: $color-secondary;
+    @include breakpoint(medium) {
+      width: 9rem;
+    }
+    @include breakpoint(large) {
+      width: 10rem;
+    }
   }
 }
 </style>

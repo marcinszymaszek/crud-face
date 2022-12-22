@@ -2,9 +2,9 @@
   <div>
     <ul class="faces">
       <li
-        v-for="(face, index) in allFaces"
+        v-for="(face) in allFaces"
         :key="face._id"
-        :class="index % 2 !== 0 ? 'odd' : 'even'"
+        class="face"
       >
         <slot :face="face"> </slot>
       </li>
@@ -19,17 +19,32 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../styles/_variables.scss";
+@import "../styles/mixins.scss";
 
 .faces {
   padding: 0 0;
   list-style: none;
-  .odd {
-    background: $color-grey-light;
+  @include breakpoint(medium) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
   }
-  .even {
-    background: $color-grey-dark;
+  @include breakpoint(large) {
+    gap: 1rem;
+  }
+  .face {
+    background: $color-grey-light;
+    margin-bottom: 1rem;
+    @include breakpoint(medium) {
+      margin-bottom: 0;
+      flex: 0 1 calc(50% - 1em);
+    }
+    @include breakpoint(large) {
+      flex: 0 1 calc(25% - 1em);
+    }
   }
 }
 </style>

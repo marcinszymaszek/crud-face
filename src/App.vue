@@ -127,21 +127,6 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0 1rem;
 
-  //====== FONTS =======
-  h1 {
-    color: $color-lagoon;
-    text-align: center;
-    font-size: 50px;
-  }
-
-  h2 {
-    text-align: left;
-    font-size: 20px;
-    width: 100%;
-    font-weight: 100;
-    margin: 7px 0;
-  }
-
   p {
     color: $color-lagoon-dark;
     font-size: 17px;

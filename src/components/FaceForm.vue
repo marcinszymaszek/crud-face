@@ -153,10 +153,16 @@ export default {
   left: 0;
   margin: auto;
   text-align: center;
-  width: 80%;
+  width: 85%;
   height: fit-content;
   z-index: 999;
   transform: none;
+  @include breakpoint(medium) {
+    width: 60%;
+  }
+  @include breakpoint(large) {
+    width: 30%;
+  }
   .modal-content {
     .icon-close {
       cursor: pointer;
@@ -223,9 +229,21 @@ export default {
 .btn {
   @include basic-button;
   &--save {
+    @include breakpoint(medium) {
+      max-width: 9rem;
+    }
+    @include breakpoint(large) {
+      max-width: 10rem;
+    }
     margin-bottom: 0.5rem;
     margin-top: 1.5rem;
     background: $color-main;
   }
+}
+
+h2 {
+  @include text-secondary;
+  text-align: left;
+  margin: 7px 0;
 }
 </style>
