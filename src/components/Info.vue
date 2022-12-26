@@ -45,7 +45,7 @@ export default {
     border-radius: 5px;
     &:focus-visible {
       outline: none;
-      border-color: $color-blue-light;
+      border-color: $color-purple;
     }
     @include breakpoint(medium) {
       flex-basis: 55%;
@@ -61,7 +61,7 @@ p {
 }
 
 a {
-  color: $color-primary;
+  color: $color-purple;
   text-decoration: none;
 }
 </style>
