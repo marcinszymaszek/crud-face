@@ -1,8 +1,8 @@
 <template>
   <div class="box box--header">
     <h1>CrudFace</h1>
-    <button @click="$emit('open-modal', true)" class="btn btn--add">
-      Add Face
+    <button @click="$emit('open-modal', true)" class="btn btn--create">
+      Create Face
     </button>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
 @import "../styles/_variables.scss";
 
 h1 {
-  color: $color-lagoon;
+  color: $color-primary;
   text-align: center;
   font-size: 50px;
   margin-bottom: 1rem;
@@ -35,9 +35,8 @@ h1 {
 }
 
 .btn {
-  @include basic-button;
-  &--add {
-    background: $color-secondary;
+  &--create {
+    @include basic-button(standard,$color-green,$color-green-dark);
     @include breakpoint(medium) {
       width: 9rem;
     }

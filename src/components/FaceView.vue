@@ -90,6 +90,9 @@ export default {
 
 .box {
   @include center-container;
+  border-radius: 7px;
+  background: white;
+  box-shadow: -7px 7px 24px -19px rgba(150, 150, 150, 1);
   &.face-view {
     align-items: center;
   }
@@ -99,17 +102,13 @@ export default {
   }
   .btn {
     width: 100%;
-    &--edit,
-    &--delete {
-      width: 100%;
-    }
     &--edit {
+      @include basic-button(inverted,$color-blue,$color-blue-dark);
       margin: 1rem 0rem;
-      background: $color-blue;
     }
     &--delete {
+      @include basic-button(inverted,$color-red,$color-red-dark);
       margin-bottom: 1rem;
-      background: $color-red;
     }
     @include breakpoint(medium) {
       &--edit,

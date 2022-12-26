@@ -1,45 +1,68 @@
-@import './variables';
+@import "./variables";
 
 //====== RESPONSIVENESS =======
-@mixin breakpoint( $breakpoint ) {
-  @if map-has-key( $breakpoints, $breakpoint ) {
-     @media ( min-width: #{ map-get( $breakpoints, $breakpoint ) } ) {
-       @content;
-     }
-  } @else if type_of( $breakpoint ) == number and unit( $breakpoint ) == px or unit( $breakpoint ) == em or unit( $breakpoint ) == rem {
-     @media (min-width: $breakpoint ) {
-       @content;
-     }
-   } @else {
-     @warn "Can't get any value from #{$breakpoint}";
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media ( min-width: #{ map-get( $breakpoints, $breakpoint ) } ) {
+      @content;
+    }
+  } @else if
+    type_of($breakpoint) ==
+    number and
+    unit($breakpoint) ==
+    px or
+    unit($breakpoint) ==
+    em or
+    unit($breakpoint) ==
+    rem
+  {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @warn "Can't get any value from #{$breakpoint}";
   }
 }
 
 //====== CONTAINER =======
 @mixin center-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  @mixin center-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
-  @mixin text-secondary {
-    font-size: 20px;
-    width: 100%;
-    font-weight: 100;
-  }
+@mixin center-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin text-secondary {
+  font-size: 20px;
+  width: 100%;
+  font-weight: 100;
+}
 
 //====== BUTTON =======
-  @mixin basic-button {
-    cursor: pointer;
-    color: white;
+@mixin basic-button($type,$color,$color-hover) {
+  cursor: pointer;
+  height: 3rem;
+  font-size: 20px;
+  border-radius: 7px;
+  @if $type == inverted {
+    border: 2px solid $color;
+    color: $color;
+    background: none;
+    &:hover {
+      border: 2px solid $color-hover;
+      color: $color-hover;
+    }
+  } @else {
     border: none;
-    height: 3rem;
-    font-size: 20px;
-    border-radius: 10px;
+    background: $color;
+    color: white;
+    &:hover {
+      background: $color-hover;
+    }
   }
+}

@@ -35,13 +35,18 @@ export default {
   flex-direction: row;
   align-items: center;
   label {
+    color: $color-secondary;
     padding-right: 0.5rem;
   }
   input {
     flex-basis: 90%;
     height: 2.5rem;
-    border: solid 1.5px rgb(148, 148, 148);
+    border: 1px solid rgba(34, 36, 38, 0.15);
     border-radius: 5px;
+    &:focus-visible {
+      outline: none;
+      border-color: $color-blue-light;
+    }
     @include breakpoint(medium) {
       flex-basis: 55%;
     }
@@ -49,5 +54,14 @@ export default {
       flex-basis: 25%;
     }
   }
+}
+p {
+  color: $color-secondary;
+  font-size: 17px;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
 }
 </style>

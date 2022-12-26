@@ -123,24 +123,19 @@ export default {
 @import "../src/styles/variables";
 @import "../src/styles/mixins";
 
+body {
+  margin: 0 0;
+  background: $color-grey;
+}
+
 #app {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0 1rem;
-
-  p {
-    color: $color-lagoon-dark;
-    font-size: 17px;
-  }
-
-  a {
-    color: #1264a3;
-    text-decoration: none;
-  }
-
+  height: 100vh;
   //====== LOADER =======
   .loader {
-    border: 10px solid #f3f3f3;
-    border-top: 10px solid $color-lagoon;
+    border: 10px solid $color-grey-2;
+    border-top: 10px solid $color-purple;
     border-radius: 50%;
     margin-top: 10rem;
     font-size: 25px;

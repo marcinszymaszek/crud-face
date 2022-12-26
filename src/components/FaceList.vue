@@ -24,7 +24,7 @@ export default {
 @import "../styles/mixins.scss";
 
 .faces {
-  padding: 0 0;
+  padding: 0 0 1rem 0;
   list-style: none;
   @include breakpoint(medium) {
     display: flex;
@@ -36,7 +36,6 @@ export default {
     gap: 1rem;
   }
   .face {
-    background: $color-grey-light;
     margin-bottom: 1rem;
     @include breakpoint(medium) {
       margin-bottom: 0;

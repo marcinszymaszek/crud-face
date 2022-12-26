@@ -227,8 +227,8 @@ export default {
 }
 
 .btn {
-  @include basic-button;
   &--save {
+    @include basic-button(standard,$color-green-2,$color-green-2-dark);
     @include breakpoint(medium) {
       max-width: 9rem;
     }
@@ -237,7 +237,6 @@ export default {
     }
     margin-bottom: 0.5rem;
     margin-top: 1.5rem;
-    background: $color-main;
   }
 }
 
