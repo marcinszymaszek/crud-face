@@ -19,7 +19,7 @@ export default {
   @include center-text;
   @include text-secondary;
   font-size: 30px;
-  color: $color-primary;
+  color: $color-purple;
   font-weight: 400;
   margin-top: 7px;
   @include breakpoint(medium) {

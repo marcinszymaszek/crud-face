@@ -34,6 +34,7 @@ export default {
   }
   @include breakpoint(large) {
     gap: 1rem;
+    justify-content: flex-start;
   }
   .face {
     margin-bottom: 1rem;

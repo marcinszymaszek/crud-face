@@ -61,7 +61,7 @@ p {
 }
 
 a {
-  color: $color-primary;
+  color: $color-blue-light-2;
   text-decoration: none;
 }
 </style>

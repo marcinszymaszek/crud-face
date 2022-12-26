@@ -36,7 +36,7 @@ h1 {
 
 .btn {
   &--create {
-    @include basic-button(standard,$color-green,$color-green-dark);
+    @include basic-button(standard, $color-green, $color-green-dark);
     @include breakpoint(medium) {
       width: 9rem;
     }
